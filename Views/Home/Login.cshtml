@@ -1,0 +1,26 @@
+@model LoginUser
+
+<div style="color:black;">
+    <h1 class="text-center">Hobby Hub!</h1>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; font-size: 20px;">
+        <h2>Login</h2>
+    </div>
+    <form asp-action="LoginForm" asp-controller="Home" method="POST">
+        <div >
+            <p><span class="text-danger" asp-validation-for="LoginUsername"></span></p>
+            <label asp-for="LoginUsername"></label>
+            <br>
+            <input asp-for="LoginUsername">
+        </div>
+        <div>
+            <p><span class="text-danger" asp-validation-for="LoginPassword"></span></p>
+            <label asp-for="LoginPassword"></label>
+            <br>
+            <input type="password" asp-for="LoginPassword" name="LoginPassword" id="LoginPassword">
+        </div>
+        <div style="margin-top: 20px;">
+            <button class="btn btn-primary">Login!</button>
+            <a style="margin-left: 30px;" href="/">Need to Register?</a>
+        </div>
+    </form> 
+</div>

@@ -1,0 +1,46 @@
+﻿@model User
+
+<div style="color: black;">
+    <h1 class="text-center">Hobby Hub!</h1>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; font-size: 20px;">
+        <h2>Register</h2>
+    </div>
+    <form asp-action="RegisterForm" asp-controller="Home" method="POST">
+        <div style="width: 500px; height: auto; display: flex; flex-direction: row; justify-content: space-between;">
+            <div>
+                <div>
+                    <p><span class="text-danger" asp-validation-for="FirstName"></span></p>
+                    <label asp-for="FirstName"></label>
+                    <input type="text" asp-for="FirstName">
+                </div>
+                <div>
+                    <p><span class="text-danger" asp-validation-for="LastName"></span></p>
+                    <label asp-for="LastName"></label>
+                    <input type="text" asp-for="LastName">
+                </div>
+                <div>
+                    <p><span class="text-danger" asp-validation-for="Username"></span></p>
+                    <label asp-for="Username"></label>
+                    <input type="text" asp-for="Username">
+                </div>
+            </div>
+            <div style="margin-left: 40px;">
+                <div>
+                    <p><span class="text-danger" asp-validation-for="Password"></span></p>
+                    <label asp-for="Password"></label>
+                    <br>
+                    <input type="password" asp-for="Password">
+                </div>
+                <div>
+                    <p><span class="text-danger" asp-validation-for="Confirm"></span></p>
+                    <label asp-for="Confirm"></label>
+                    <input type="password" asp-for="Confirm">
+                </div><br><br>
+            </div>
+        </div>
+        <div style="margin-top: 60px;" >
+            <button class="btn btn-primary">Sign up Now!</button>
+            <a style="margin-left: 40px;" href="/login">Already Registered?</a>
+        </div>
+    </form>
+</div>

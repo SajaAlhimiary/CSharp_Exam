@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Hobby";
+    @model List<Hobby>;
+}
+
+<div class="text-center">
+    <h1>Hobbies</h1><a style="margin-left: 800px" href="/logout">Logout</a><br><br>
+
+    <table class="table" style="width: 60%; margin: auto;">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Enthusiasts</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Hobby h in Model)
+            {
+            <tr>
+                <td><a href="Hobby/@h.HobbyId"> @h.Name</a></td>
+                <td>@h.Enthus.Count</td>
+            </tr>
+            }
+        }
+        </tbody>
+    </table><br><br><br>
+    <a href="Hobby/New">Create a Hobby</a>
+</div>
+

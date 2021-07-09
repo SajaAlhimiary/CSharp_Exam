@@ -1,0 +1,44 @@
+@model Hobby;
+@{
+    int UserID = (int)Context.Session.GetInt32("userId");
+}
+
+<div class="text-center">
+    <a style="margin-left: 800px" href="/logout">Logout</a>
+</div>
+<br><br>
+<div>
+    <h1>@Model.Name</h1><br>
+    <p><strong> Describtion:</strong> @Model.Describtion</p>
+    <a href="/Hobby/Edit/@Model.HobbyId"><button class="btn btn-primary">Edit Hobby</button></a>
+</div><br><br>  
+
+
+<div style="display: flex; justify-content: space-evenly;">
+    <div>
+        <p>@Model.Name Enthusiasts:</p>
+        <div style="border: 1px solid black; width: 150px;">
+            @{
+                foreach (Enthusiast e in @Model.Enthus)
+                {
+                    <p>@e.User.Username</p>
+                }
+            }
+        </div>
+    </div>
+    <div>
+        @{
+            if (@Model.Enthus.Any( a => a.UserId == UserID))
+            {
+                <p>Drop this Hobby!</p>
+                <a href="/Hobby/Drop/@Model.HobbyId"><button class="btn btn-primary">Drop Hobby</button></a>
+            }
+            else
+            {
+                <p>Become an Enthusiast!</p>
+                <a href="/Hobby/Add/@Model.HobbyId"><button class="btn btn-primary">Add to Hobbies</button></a>  
+            }
+        }
+       
+    </div>
+</div>

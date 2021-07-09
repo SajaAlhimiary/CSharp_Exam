@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Edit Hobby";
+    @model Hobby;
+}
+
+<div class="text-center">
+    <h1>Edit a Hobby</h1> <a style="margin-left: 800px" href="/logout">Logout</a><br><br>
+</div>
+<div class="text-center">
+    <form asp-action="ProcessEdit" asp-controller="Home" method="POST">
+    <div>
+        <p><span class="text-danger" asp-validation-for="Name"></span></p>
+        <label asp-for="Name">Name: </label><br>
+        <input type="text" asp-for="Name">
+    </div>
+    <div>
+        <p><span class="text-danger" asp-validation-for="Describtion"></span></p>
+        <label asp-for="Describtion">Describtion: </label><br>
+        <textarea asp-for="Describtion" cols="30" rows="10"></textarea>
+    </div>
+    <div style="margin-top: 40px;">
+        <button class="btn btn-primary">Update</button>
+    </div>
+</form>
+</div>
